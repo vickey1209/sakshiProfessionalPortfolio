@@ -221,10 +221,21 @@ ul.ul{
   place-items: center;
 }
 
+
+
+.homeImage img {
+  padding: bottom 20%;
+  max-width: 500px;
+  height: 530px;
+
+  width: 110%;
+  border-radius: 8px;
+}
+
 .about-img img {
   padding: bottom 20%;
   max-width: 500px;
-  height: 1000px;
+  height: 900px;
   width: 100%;
   border-radius: 8px;
 }
@@ -259,8 +270,8 @@ ul.ul{
   position: relative;
 
   display: flex;
-  -webkit-box-reflect: below 1px
-    linear-gradient(transparent, transparent, transparent, #0004);
+  /* -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, transparent, #0004); */
 }
 .containers .box {
   /* margin-left: 50px; */
@@ -742,6 +753,7 @@ width: 90%;
 
 .portfolio-section {
   padding: 100px;
+  display: inline-block;
 }
 .portfolio {
   background: var(--second-bg-color);

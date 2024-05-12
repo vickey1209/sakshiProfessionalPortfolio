@@ -24,4 +24,24 @@ sendMailBtn.addEventListener("click", function (e) {
   );
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const achievements = document.querySelector('.achievements');
+  const toggleBtn = document.querySelector('.toggle-info');
+  const hideableItems = document.querySelectorAll('.hideable');
 
+  toggleBtn.addEventListener('click', function() {
+      if (achievements.classList.contains('show')) {
+          achievements.classList.remove('show');
+          toggleBtn.textContent = 'More Info';
+          hideableItems.forEach(item => {
+              item.style.display = 'none';
+          });
+      } else {
+          achievements.classList.add('show');
+          toggleBtn.textContent = 'Less Info';
+          hideableItems.forEach(item => {
+              item.style.display = 'block';
+          });
+      }
+  });
+});
