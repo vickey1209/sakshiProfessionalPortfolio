@@ -23,3 +23,5 @@ sendMailBtn.addEventListener("click", function (e) {
     )}): ${encodeURIComponent(message.value)}`
   );
 });
+
+
