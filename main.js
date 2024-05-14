@@ -5,43 +5,75 @@ const message = document.getElementById("message");
 const subject = document.getElementById("subject");
 
 var typed = new Typed(".text", {
-  strings: ["Senior Associate(Fixed Income)", "Account Manager","Wealth Mangement Professional"],
+  strings: [
+    "Senior Associate(Fixed Income)",
+    "Account Manager",
+    "Wealth Mangement Professional",
+  ],
   typeSpeed: 100,
   backSpeed: 100,
   backDelay: 1000,
   loop: true,
 });
 
-
-
 sendMailBtn.addEventListener("click", function (e) {
+  console.log(
+    "Emial >>",
+    email.value,
+    " === ",
+    "subject >>",
+    subject.value,
+    "===",
+    "message >>",
+    message.value
+  );
   window.open(
-    `mailto:${email.value}?subject=${encodeURIComponent(
+    `mailto:saksrivastava1995@gmail.com?subject=${encodeURIComponent(
       subject.value
     )}&body=${encodeURIComponent(name.value)} (${encodeURIComponent(
-      email
+      email.value
     )}): ${encodeURIComponent(message.value)}`
   );
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const achievements = document.querySelector('.achievements');
-  const toggleBtn = document.querySelector('.toggle-info');
-  const hideableItems = document.querySelectorAll('.hideable');
+const cards = document.querySelectorAll(".service-card");
 
-  toggleBtn.addEventListener('click', function() {
-      if (achievements.classList.contains('show')) {
-          achievements.classList.remove('show');
-          toggleBtn.textContent = 'More Info';
-          hideableItems.forEach(item => {
-              item.style.display = 'none';
-          });
+console.log("cards >", cards);
+cards.forEach((card) => {
+  const toggleButton = card.querySelector(".toggle-button");
+  const listItems = card.querySelectorAll(".ul li");
+
+  function showInitialItems() {
+    listItems.forEach((item, index) => {
+      if (index < 3) {
+        item.classList.add("visible");
       } else {
-          achievements.classList.add('show');
-          toggleBtn.textContent = 'Less Info';
-          hideableItems.forEach(item => {
-              item.style.display = 'block';
-          });
+        item.classList.remove("visible");
       }
-  });
+    });
+  }
+
+  function toggleItems() {
+    console.log(listItems);
+    const allVisible = Array.from(listItems).every((item) =>
+      item.classList.contains("visible")
+    );
+
+    console.log(allVisible);
+    if (allVisible) {
+      // Hide items
+      showInitialItems();
+      toggleButton.textContent = "Show More";
+    } else {
+      // Show all items
+      listItems.forEach((item) => item.classList.add("visible"));
+      toggleButton.textContent = "Show Less";
+    }
+  }
+
+  // Show initial 3 items for each card
+  showInitialItems();
+
+  // Add click event to toggle button for each card
+  toggleButton.addEventListener("click", toggleItems);
 });
