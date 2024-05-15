@@ -77,3 +77,20 @@ cards.forEach((card) => {
   // Add click event to toggle button for each card
   toggleButton.addEventListener("click", toggleItems);
 });
+
+// Navbar
+function toggleNavbar() {
+  let navbarLinks = document.getElementById("navbarLinks");
+  let closeBtn = document.getElementsByClassName("close-btn");
+
+  navbarLinks.classList.toggle("active");
+  closeBtn[0].classList.toggle("active");
+}
+
+// Close the navbar when a link is clicked
+document.querySelectorAll("#navbarLinks a").forEach((link) => {
+  link.addEventListener("click", () => {
+    let navbarLinks = document.getElementById("navbarLinks");
+    navbarLinks.style.right = "-100%";
+  });
+});
