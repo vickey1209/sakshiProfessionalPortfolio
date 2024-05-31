@@ -507,6 +507,22 @@ a.toggle-button {
   box-shadow: 0 0 5px cyan, 0 0 25px cyan;
 }
 
+.year span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  
+
+}
+
+.year span {
+  font-size: 17px;
+  font-weight: 500;
+  animation: showText 0.5s 1s linear forwards;
+  opacity: 0;
+}
+
 .read:hover {
   box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 200px cyan, 0 0 100px cyan,
     0 0 200px cyan;
